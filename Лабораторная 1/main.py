@@ -10,13 +10,13 @@ def cons_input():
                 return a, b, eps
             except:
                 print("Ошибка чтения")
-                return None
+                return 0, 0, 0
         except:
             print("Ошибка чтения")
-            return None
+            return 0, 0, 0
     except:
         print("Ошибка чтения")
-        return None
+        return 0, 0, 0
 
 
 def integ(x: float) -> float:
@@ -74,9 +74,10 @@ def main():
                 break
             case 1:
                 a, b, eps = cons_input()
-                w = task(a, b, eps)
-                print(f"Полученный результат: {w}\n")
-                file_write(a, b, eps, w)
+                if a != 0 and b != 0 and eps != 0:
+                    w = task(a, b, eps)
+                    print(f"Полученный результат: {w}\n")
+                    file_write(a, b, eps, w)
             case 2:
                 file_read()
             case _:
